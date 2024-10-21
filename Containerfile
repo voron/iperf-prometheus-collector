@@ -8,10 +8,10 @@ RUN make build
 
 # ---
 
-FROM docker.io/golang:1.23.2-bookworm
+FROM alpine:3.20
 WORKDIR /app
 
-RUN apt update && apt install -y --no-install-recommends iperf3 && rm -rf /var/lib/apt/lists
+RUN apk add --no-cache iperf3
 
 COPY --from=builder /app/build /app/build
 

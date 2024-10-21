@@ -11,7 +11,7 @@ lint:
 
 .PHONY: build
 build:
-	go build -o ./build/main ./cmd/*.go
+	CGO_ENABLED=0 go build -o ./build/main ./cmd/*.go
 
 .PHONY: run
 run:
